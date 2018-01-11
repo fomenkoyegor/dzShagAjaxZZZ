@@ -93,7 +93,7 @@ page.userList = {
     },
     ajaxUpdate: function () {
         page.fader.show();
-        Ajax.get("http://pdfstep.zzz.com.ua?action=user&method=getAll", function (response) {
+        Ajax.get("//pdfstep.zzz.com.ua?action=user&method=getAll", function (response) {
             this.users = JSON.parse(response).data;
             this.redraw();
             page.fader.hide();
@@ -110,14 +110,14 @@ page.userList = {
     },
     appendUser: function (name) {
         page.fader.show();
-        Ajax.post("http://pdfstep.zzz.com.ua?action=user&method=add", { name: name }, function (response) {
+        Ajax.post("//pdfstep.zzz.com.ua?action=user&method=add", { name: name }, function (response) {
             console.log(response);
             this.ajaxUpdate();
         }.bind(this))
     },
     delUser: function (id) {
         page.fader.show();
-        Ajax.post("http://pdfstep.zzz.com.ua?action=user&method=del", { id: id }, function (response) {
+        Ajax.post("//pdfstep.zzz.com.ua?action=user&method=del", { id: id }, function (response) {
             console.log(response);
             this.ajaxUpdate();
         }.bind(this))
@@ -174,7 +174,7 @@ page.nooteBook = {
 
     ajaxUpdateNotes: function (id) {
 
-        Ajax.post("http://pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
+        Ajax.post("//pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
             this.notes = JSON.parse(response).data;
             this.redraw();
 
@@ -211,7 +211,7 @@ page.nooteBook = {
     },
 
     getNotes: function (id) {
-        Ajax.post("http://pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
+        Ajax.post("//pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
 
             this.notes = JSON.parse(response).data;
 
@@ -221,7 +221,7 @@ page.nooteBook = {
     },
     appendNotes: function (id, name, desc) {
 
-        Ajax.post("http://pdfstep.zzz.com.ua?action=todo&method=add", { id: id, name: name, desc: desc }, function (response) {
+        Ajax.post("//pdfstep.zzz.com.ua?action=todo&method=add", { id: id, name: name, desc: desc }, function (response) {
             console.log(response);
             this.ajaxUpdateNotes(this.form.elements.name.dataset.id)
         }.bind(this))
