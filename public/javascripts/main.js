@@ -94,7 +94,9 @@ page.userList = {
     ajaxUpdate: function () {
         page.fader.show();
         Ajax.get("//pdfstep.zzz.com.ua?action=user&method=getAll", function (response) {
-            this.users = JSON.parse(response).data;
+//             response = response != "" ? $.parseJSON(response) : {};
+//             this.users = JSON.parse(response).data;
+            this.users= response != "" ? $.parseJSON(response) : {};
             this.redraw();
             page.fader.hide();
             console.log(response)
