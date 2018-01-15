@@ -120,7 +120,7 @@ page.userList = {
     },
     delUser: function (id) {
         page.fader.show();
-        Ajax.post("//pdfstep.zzz.com.ua?action=user&method=del", { id: id }, function (response) {
+        Ajax.post("http://pdfstep.zzz.com.ua?action=user&method=del", { id: id }, function (response) {
             console.log(response);
             this.ajaxUpdate();
         }.bind(this))
@@ -177,7 +177,7 @@ page.nooteBook = {
 
     ajaxUpdateNotes: function (id) {
 
-        Ajax.post("//pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
+        Ajax.post("http://pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
             this.notes = JSON.parse(response).data;
             this.redraw();
 
@@ -214,7 +214,7 @@ page.nooteBook = {
     },
 
     getNotes: function (id) {
-        Ajax.post("//pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
+        Ajax.post("http://pdfstep.zzz.com.ua?action=todo&method=get", { id: id }, function (response) {
 
             this.notes = JSON.parse(response).data;
 
@@ -224,7 +224,7 @@ page.nooteBook = {
     },
     appendNotes: function (id, name, desc) {
 
-        Ajax.post("//pdfstep.zzz.com.ua?action=todo&method=add", { id: id, name: name, desc: desc }, function (response) {
+        Ajax.post("http://pdfstep.zzz.com.ua?action=todo&method=add", { id: id, name: name, desc: desc }, function (response) {
             console.log(response);
             this.ajaxUpdateNotes(this.form.elements.name.dataset.id)
         }.bind(this))
